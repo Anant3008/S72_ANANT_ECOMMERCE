@@ -27,7 +27,7 @@ In today's session, we covered:
 
 ## Milestone 2: Login Page Implementation
 
-In this milestone, I've added a **login page** using React and styled it with **Tailwind CSS**. This marks an important step in the project as I'm now able to create a simple user login system. 
+In this milestone, I've added a **login page** using React and styled it with **Tailwind CSS**. This marks an important step in the project as I'm now able to create a simple user login system.
 
 **Key updates include:**
 - **Login Page UI:** Created a simple login page where users can input their credentials (email and password).
@@ -35,6 +35,43 @@ In this milestone, I've added a **login page** using React and styled it with **
 - **React State Management:** Managed form inputs and basic state within the React app to handle login credentials.
 
 This login page will serve as the foundation for adding authentication functionality in the future.
+
+---
+
+## Milestone 3: Backend Implementation - Completed
+
+The backend portion of the project has been completed. This includes setting up the server, connecting to the database, and creating basic API routes for handling product and user data.
+
+**Key updates include:**
+- **Express Server Setup:** Set up the backend server using Express.js to handle API requests.
+- **MongoDB Database Connection:** Established a connection to MongoDB to store user and product data.
+- **User Authentication Routes:** Created routes for user registration, login, and authentication.
+- **Product Routes:** Created routes for fetching product data and displaying it to the frontend.
+
+With the backend in place, the frontend can now interact with the server to handle product display, user login, and more.
+
+---
+
+## Milestone 4: User Model, Controller, and File Uploads - Completed
+
+In this milestone, I focused on enhancing the backend functionality by creating a user model, controller, and enabling file uploads.
+
+**Key updates include:**
+- **User Model:** Designed a blueprint for storing user data (name, email, password) in MongoDB, using Mongoose schemas.
+- **User Controller:** Created a controller to manage user-related actions, such as user registration and authentication.
+- **Multer Integration:** Configured Multer to handle file uploads, allowing users to upload profile pictures and store them on the server.
+
+### Key Concepts Covered:
+1. **What’s a Model?**
+   - A model defines how data is structured in the database. The **User Model** defines how user information like name, email, and password will be stored in the database using a Mongoose schema.
+
+2. **What’s a Controller?**
+   - A controller manages the logic of handling user requests and responses. The **User Controller** handles tasks like creating a new user or authenticating an existing one.
+
+3. **File Uploads with Multer:**
+   - Multer was integrated to enable file uploads, such as profile pictures. Multer stores uploaded files on the server and makes it easier to manage them.
+
+With these updates, the project is now capable of handling user registration and authentication, along with storing user-uploaded files like images.
 
 ---
 
@@ -82,11 +119,11 @@ My first database will include:
 - Basic user information
 - Order details
 
-### Backend Development
-Learning the basics of:
+### Backend Development (Completed!)
+The backend is fully functional and includes:
 - Setting up a server
 - Connecting to a database
-- Handling basic requests
+- Handling basic requests like user authentication and product management
 
 ### Frontend Development
 Starting with:
@@ -119,3 +156,5 @@ Understanding:
 - Why we need user accounts
 - How to keep passwords safe
 - Basic login/logout functionality
+
+---
