@@ -25,6 +25,19 @@ In today's session, we covered:
 
 ---
 
+## Milestone 2: Login Page Implementation
+
+In this milestone, I've added a **login page** using React and styled it with **Tailwind CSS**. This marks an important step in the project as I'm now able to create a simple user login system. 
+
+**Key updates include:**
+- **Login Page UI:** Created a simple login page where users can input their credentials (email and password).
+- **Tailwind CSS Integration:** Used Tailwind to quickly style the login page with modern UI components.
+- **React State Management:** Managed form inputs and basic state within the React app to handle login credentials.
+
+This login page will serve as the foundation for adding authentication functionality in the future.
+
+---
+
 ## Project Description
 
 I'm creating a basic online store where users can browse products, add them to a cart, and pretend to buy them (no real payments yet!). This is my first full-stack project, and I'm excited to learn how websites actually work behind the scenes. The project will start simple and grow as I learn more.
@@ -46,10 +59,10 @@ As a beginner, I'm hoping to:
 
 ### MERN Stack
 I'm learning these four technologies:
-- MongoDB: Where I'll store all my project's data
-- Express: Helps me create a server
-- React: For building the website's interface
-- Node.js: Lets me run JavaScript outside the browser
+- **MongoDB:** Where I'll store all my project's data
+- **Express:** Helps me create a server
+- **React:** For building the website's interface
+- **Node.js:** Lets me run JavaScript outside the browser
 
 ### REST API Creation
 I'll be learning how to:
@@ -59,7 +72,7 @@ I'll be learning how to:
 
 ### Authentication
 Starting with simple features:
-- Basic login page
+- **Basic login page** (completed!)
 - User registration
 - Learning about passwords and security
 
