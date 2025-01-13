@@ -1,5 +1,8 @@
 const express =require('express')
 const app=express()
+const user=require('./controller/user')
+
+app.use("/api/v2/user",user)
 
 if(process.env.NODE_ENV !== "PRODUCTION"){
     require("dotenv").config({
