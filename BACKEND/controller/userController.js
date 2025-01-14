@@ -1,8 +1,8 @@
 const express = require('express');
 const path = require('path');
-const User=require('../model/user');
+const User=require('../model/userModel');
 const router = express.Router();
-const {upload}=require("../multer");
+const {upload}=require("../middleware/multer");
 const ErrorHandler=require("../utils/ErrorHandler");
 
 router.post("/create-user",upload.single('file'),async (req,res)=>{
@@ -13,7 +13,7 @@ router.post("/create-user",upload.single('file'),async (req,res)=>{
     }
 
     const filename=req.file.filename;
-    const fileUrl=path.join(filename)
+    const fileUrl=path.join('/uploads',filename)
     const user={
         name:name,
         email:email,

@@ -1,6 +1,6 @@
 const express =require('express')
 const app=express()
-const user=require('./controller/user')
+const user=require('./controller/userController')
 
 app.use("/api/v2/user",user)
 
