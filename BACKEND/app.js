@@ -1,6 +1,6 @@
 const express =require('express')
 const app=express()
-const user=require('./controller/userController')
+const user=require('./controller/user')
 const bodyParser=require("body-parser")
 const cors=require("cors")
 const ErrorHandler=require("./middleware/error")
