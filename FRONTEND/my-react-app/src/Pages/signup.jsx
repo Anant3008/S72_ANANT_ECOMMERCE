@@ -38,7 +38,6 @@ const SignupPage = () => {
     const config = {
       headers: {
         "Content-type": "multipart/form-data",
-        Accept: "any",
       },
     };
 
