@@ -58,8 +58,6 @@ router.post('/login-user',catchAsyncErrors(async (req,res,next)=>{
     console.log("Logging in user...")
 
     let {email , password}=req.body
-    email=email
-    password=password
 
     if(!email || !password){
         return next(new ErrorHandler("Provide both email and password",400))
@@ -91,5 +89,8 @@ router.post('/login-user',catchAsyncErrors(async (req,res,next)=>{
     );
 
 }))
+
+
+
 
 module.exports = router;

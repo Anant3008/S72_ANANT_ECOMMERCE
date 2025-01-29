@@ -11,4 +11,19 @@ const storage=multer.diskStorage({
         cb(null, filename+"-"+uniqueSuffix+".png");
     }
 })
+const pstorage=multer.diskStorage({
+    destination: (req,file,cb1)=>{
+        cb1(null, 'uploads/');
+    },
+    filename:(req,file,cb1)=>{
+        const uniqueSuffix=Date.now()+'-'+Math.round.apply(Math.random()*1e9);
+
+        const filename=file.originalname.split('.')[0];
+        cb1(null, filename+"-"+uniqueSuffix+".png");
+    }
+})
+
+
+
 exports.upload=multer({storage:storage})
+exports.pupload=multer({storage:pstorage});

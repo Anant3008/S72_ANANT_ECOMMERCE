@@ -19,3 +19,10 @@ const server = app.listen(process.env.PORT, () => {
         `Server is running on https://localhost:${process.env.PORT}`
         );
 });
+
+console.log("Registered routes:");
+app._router.stack.forEach((r) => {
+    if (r.route && r.route.path) {
+        console.log(r.route.path);
+    }
+});
