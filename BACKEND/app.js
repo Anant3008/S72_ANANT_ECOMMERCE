@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path"); // Require the path module
 const app = express();
 const user = require("./controller/user");
 const product = require("./controller/product");
@@ -12,6 +13,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // Use CORS middleware
 app.use(cors());
+
+// Fix: Remove "this" and use path module correctly
+app.use('/products', express.static(path.join(__dirname, 'products')));
 
 app.use("/api/v2/user", user);
 app.use("/api/v2/product", product);

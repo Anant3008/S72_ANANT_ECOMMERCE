@@ -2,7 +2,8 @@ const express = require("express");
 const Product = require("../model/product.js");
 const User = require("../model/modal");
 const router = express.Router();
-const { pupload } = require("../middleware/multer");
+const { pupload } = require("../multer");
+const path=require('path')
 
 const validateProductData = (data) => {
     const errors = [];
@@ -33,7 +34,9 @@ const validateProductData = (data) => {
 // @route POST /api/products
 router.post("/create-product", pupload.array("images"), async (req, res) => {
     const { name, description, category, price, stock, email, tags } = req.body;
-    const images = req.files ? req.files.map((file) => file.path) : [];
+    const images = req.files ? req.files.map((file) => {
+        return  `/products/${file.filename}`
+    }) : [];
 
     const validationErrors = validateProductData({ name, description, category, price, stock, email, tags });
     if (validationErrors.length > 0) {
@@ -72,4 +75,22 @@ router.post("/create-product", pupload.array("images"), async (req, res) => {
     }
 });
 
+
+router.get('/get-products',async(req,res)=>{
+    try {
+        const products=await Product.find()
+        const productWithFullImgURL=products.map(product=>{
+            if(product.images && product.images.length > 0){
+                product.images=product.images.map(imagePath=>{
+                    return imagePath
+                })
+            return product
+            }
+        })
+                res.status(200).json({product: productWithFullImgURL})
+    }catch(e){
+        console.error('error: ',e)
+        res.status(500).json({error: 'Server error.'})
+    }
+})
 module.exports = router;
