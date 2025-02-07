@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import PropTypes from "prop-types";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
 
 // eslint-disable-next-line react/prop-types
 export default function MyProduct({_id,name, images , description , price }) {
@@ -29,6 +30,20 @@ export default function MyProduct({_id,name, images , description , price }) {
     }
 
 
+    const handleDelete=async ()=>{
+        try{
+            const res=await axios.delete(`http://localhost:8000/api/v2/product/delete-product/${_id}`)
+
+            if(res.status===200){
+                alert("Product deleted successfully")
+                window.location.reload();
+            }
+        }catch(err){
+            console.error("Deleting Failed",err.message)
+            alert("Failed Deleting")
+        }
+    }
+
     return (
         <div className="bg-neutral-200 p-4 rounded-lg shadow-md flex flex-col justify-between">
             <div className="w-full">
@@ -48,6 +63,10 @@ export default function MyProduct({_id,name, images , description , price }) {
                 <p className="text-lg font-bold my-2" > ${price.toFixed(2)}</p>
                 <button className="w-full text -white px-4 py-2 rounded-md bg- bg-neutral-900" onClick={handleEdit}>
                     Edit
+                </button>
+                <br/>
+                <button className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" onClick={handleDelete}>
+                    Delete
                 </button>
             </div>
         </div>
