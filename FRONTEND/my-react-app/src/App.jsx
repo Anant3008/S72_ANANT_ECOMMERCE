@@ -1,6 +1,7 @@
 import './App.css'
 import { BrowserRouter , Routes, Route } from "react-router-dom";
-import {LoginPage,SignupPage,Home,CreateProduct,MyProduct} from './Routes/Route.js';
+import {LoginPage,SignupPage,Home,CreateProduct,MyProduct,Cart} from './Routes/Route.js';
+
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Route path="/product" element={<CreateProduct/>}/>
       <Route path="/product/:id" element={<CreateProduct/>}/>
         <Route path="/myproduct" element={<MyProduct/>}/>
+      <Route path='/cart' element={<Cart/>}/>
     </Routes>
     </BrowserRouter>  
   )
