@@ -55,6 +55,21 @@ const userSchema = new mongoose.Schema({
         type: Date, // Changed DataTransfer to Date
         default: Date.now
     },
+    cart:[
+        {
+            productId:{
+                type:mongoose.Schema.Types.ObjectId,
+                ref:"Product",
+                required:true,
+                min:[1,"Quantity cannot be less than 1"],
+                default:1
+            },
+            quantity:{
+                type:Number,
+                required:true
+            }
+        }
+    ],
     resetPasswordToken: String,
     resetPasswordTime: Date
 });

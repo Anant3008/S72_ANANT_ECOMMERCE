@@ -3,6 +3,7 @@ import axios from 'axios'
 import Navbar from '../Components/nav.jsx'
 import {IoIosAdd, IoIosRemove} from 'react-icons/io'
 import {useEffect, useState} from "react";
+const email="a@gmail.com"
 
 export default function ProductDetails() {
     const {id}= useParams()
@@ -41,6 +42,19 @@ export default function ProductDetails() {
 
     const handleDecrement = () => {
         setQuantity((prevQuantity)=> prevQuantity>1 ? prevQuantity-1 : 1)
+    }
+
+    const addtocart=async ()=>{
+        try{
+            const response=await axios.post('http://localhost:8000/api/v2/product/cart',{
+                userId: email,
+                productId:id,
+                quantity:quantity
+            })
+            console.log("Product added successfully")
+        }catch(e){
+            console.error(e.message)
+        }
     }
 
 
@@ -155,7 +169,7 @@ export default function ProductDetails() {
                 </div>
 
                 <div className="flex flex-wrap gap-x-5 my-3">
-                    <button
+                    <button onClick={addtocart}
                         className="bg-black text-white px-5 py-2 rounded-full hover:bg-neutral-800 hover:-translate-y-1.5 active:translate-y-0 transition-transform duration-200 ease-in-out active:duration-0 active:ease-linear">
                         Add to Cart
                     </button>
