@@ -111,6 +111,19 @@ const Navbar=()=>{
                                     Cart
                                 </NavLink>
                             </li>
+                            <li>
+                                <NavLink
+                                    to="/profile"
+                                    end
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? "text-white font-semibold px-3 py-2 rounded-md text-sm transition-colors duration-200"
+                                            : "text-gray-200 hover:text-white px-3 py-2 rounded-md text-sm transition-colors duration-200"
+                                    }
+                                >
+                                    Profile
+                                </NavLink>
+                            </li>
                         </ul>
                     </div>
 
@@ -179,6 +192,22 @@ const Navbar=()=>{
                                 Cart
                             </NavLink>
                         </li>
+
+                        <li>
+                            <NavLink
+                                to="/profile"
+                                end
+                                className={({isActive}) =>
+                                    isActive
+                                        ? "text-white font-semibold px-3 py-2 rounded-md text-sm transition-colors duration-200"
+                                        : "text-gray-200 hover:text-white px-3 py-2 rounded-md text-sm transition-colors duration-200"
+                                }
+                                onClick={() => setIsOpen(false)}
+                            >
+                                Profile
+                            </NavLink>
+                        </li>
+
                     </ul>
                 </div>
             )}
