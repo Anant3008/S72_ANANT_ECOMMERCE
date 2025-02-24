@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Product from "../Components/products.jsx";
-
+import Navbar from '../Components/nav.jsx'
 export default function Home() {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -34,6 +34,7 @@ export default function Home() {
 
     return (
         <div className="w-full min-h-screen bg-neutral-700">
+            <Navbar/>
             <h1 className="text-3xl font-bold text-gray-800">Product Gallery</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4">
                 {products.map(product => (
