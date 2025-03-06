@@ -90,7 +90,25 @@ router.post('/login-user',catchAsyncErrors(async (req,res,next)=>{
 
 }))
 
+router.post('/add-address',catchAsyncErrors(async (req,res,next)=>{
+    const {country,city,address1,address2,zipcode,addresstype,email}=req.body
 
+    const user=await User.findOne({email})
+    if(!user){
+        return next(new ErrorHandler("User not found",404))
+    }
+
+    const newAddress={
+        country,city,address1,address2,zipcode,addresstype
+    }
+
+
+    user.addresses.push(newAddress)
+    await user.save()
+
+    res.status(201).json({success: true, address: user.addresses})
+
+}))
 
 
 module.exports = router;

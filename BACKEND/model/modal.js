@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     phoneNumber: {
         type: Number
     },
-    address: {
+    addresses: {
         country: {
             type: String
         },
@@ -30,10 +30,13 @@ const userSchema = new mongoose.Schema({
         address1: {
             type: String
         },
+        address2:{
+            type: String
+        },
         zipcode: {
             type: Number
         },
-        addressType: {
+        addresstype: {
             type: String
         }
     },

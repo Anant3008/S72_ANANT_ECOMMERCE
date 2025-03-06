@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import Navbar from "../Components/nav.jsx";
 import AddressCard from "../Components/addresscard.jsx";
 import { useNavigate } from "react-router-dom";
-import CreateAddress from "./createAddress.jsx";
+
 
 export default function Profile(){
 
