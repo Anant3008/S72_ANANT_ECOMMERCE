@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { RxAvatar } from "react-icons/rx";
@@ -42,110 +42,122 @@ const SignupPage = () => {
     };
 
     axios
-        .post("http://localhost:8000/api/v2/user/create-user", newForm, config)
-        .then((res) => console.log(res.data))
-        .catch((err) => console.log(err));
+      .post("http://localhost:8000/api/v2/user/create-user", newForm, config)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
   };
 
   return (
-      <div className="min-h-screen bg-gradient-to-bl from-red-500 to-yellow-400 px-6 py-12 flex flex-col justify-center sm:px-6 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <h2 className="mt-6 text-center text-3xl font-bold text-gray-950">
-            Register as a new user
-          </h2>
+    <div className="min-h-screen bg-gradient-to-bl from-red-500 to-yellow-400 px-6 py-12 flex flex-col justify-center sm:px-6 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+        <h2 className="mt-6 text-center text-3xl font-bold text-gray-950">
+          Register as a new user
+        </h2>
 
         <div className="mt-8 sm:w-full sm:max-w-md justify-center">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 justify-center">
             <form className="space-y-6" onSubmit={handleSubmit}>
               {/* Name Input */}
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Full Name
                 </label>
                 <input
-                    type="text"
-                    name="name"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 sm:text-sm"
+                  type="text"
+                  name="name"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 sm:text-sm"
                 />
               </div>
 
               {/* Email Input */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Email address
                 </label>
                 <input
-                    type="email"
-                    name="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 sm:text-sm"
+                  type="email"
+                  name="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 sm:text-sm"
                 />
               </div>
 
               {/* Password Input */}
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Password
                 </label>
                 <div className="relative">
                   <input
-                      type={visible ? "text" : "password"}
-                      name="password"
-                      required
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 sm:text-sm"
+                    type={visible ? "text" : "password"}
+                    name="password"
+                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 sm:text-sm"
                   />
                   {visible ? (
-                      <AiOutlineEye
-                          className="absolute right-2 top-2 cursor-pointer"
-                          size={25}
-                          onClick={() => setVisible(false)}
-                      />
+                    <AiOutlineEye
+                      className="absolute right-2 top-2 cursor-pointer"
+                      size={25}
+                      onClick={() => setVisible(false)}
+                    />
                   ) : (
-                      <AiOutlineEyeInvisible
-                          className="absolute right-2 top-2 cursor-pointer"
-                          size={25}
-                          onClick={() => setVisible(true)}
-                      />
+                    <AiOutlineEyeInvisible
+                      className="absolute right-2 top-2 cursor-pointer"
+                      size={25}
+                      onClick={() => setVisible(true)}
+                    />
                   )}
                 </div>
               </div>
 
               {/* Avatar Upload */}
               <div>
-                <label htmlFor="avatar" className="block text-sm font-medium text-gray-700">
+                <label
+                  htmlFor="avatar"
+                  className="block text-sm font-medium text-gray-700"
+                >
                   Avatar
                 </label>
                 <div className="mt-2 flex items-center">
-                <span className="inline-block h-9 w-8 rounded-full overflow-hidden">
-                  {avatar ? (
+                  <span className="inline-block h-9 w-8 rounded-full overflow-hidden">
+                    {avatar ? (
                       <img
-                          src={URL.createObjectURL(avatar)}
-                          alt="avatar"
-                          className="h-full w-full object-cover rounded-full"
+                        src={URL.createObjectURL(avatar)}
+                        alt="avatar"
+                        className="h-full w-full object-cover rounded-full"
                       />
-                  ) : (
+                    ) : (
                       <RxAvatar className="h-8 w-8" />
-                  )}
-                </span>
+                    )}
+                  </span>
                   <label
-                      htmlFor="file-input"
-                      className="ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+                    htmlFor="file-input"
+                    className="ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
                   >
                     <span>Upload a file</span>
                     <input
-                        type="file"
-                        name="avatar"
-                        id="file-input"
-                        accept=".jpg,.jpeg,.png"
-                        onChange={handleFileSubmit}
-                        className="sr-only"
+                      type="file"
+                      name="avatar"
+                      id="file-input"
+                      accept=".jpg,.jpeg,.png"
+                      onChange={handleFileSubmit}
+                      className="sr-only"
                     />
                   </label>
                 </div>
@@ -154,8 +166,8 @@ const SignupPage = () => {
               {/* Submit Button */}
               <div>
                 <button
-                    type="submit"
-                    className="w-full h-[40px] flex justify-center py-2 px-4 border text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+                  type="submit"
+                  className="w-full h-[40px] flex justify-center py-2 px-4 border text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
                 >
                   Submit
                 </button>
@@ -171,8 +183,8 @@ const SignupPage = () => {
             </form>
           </div>
         </div>
-        </div>
       </div>
+    </div>
   );
 };
 
